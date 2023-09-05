@@ -9,10 +9,9 @@ describe('Answer', () => {
     const contentText = 'Nova resposta'
 
     const answer = answerQuestion.execute({
+      content: contentText,
       questionId: '1',
       instructorId: '1',
-      authorId: '1',
-      content: contentText,
     })
 
     expect(answer.content).toEqual(contentText)
