@@ -1,5 +1,6 @@
-import { Answer } from "../entities/answer"
-import { AnswersRepository } from "../repositories/answers-repository"
+import { UniqueEntityID } from "../../core"
+import { Answer } from "../entities"
+import { AnswersRepository } from "../repositories"
 
 interface AnswerQuestionUseCaseRequest {
   content: string
@@ -13,10 +14,10 @@ export class AnswerQuestionUseCase {
   ) {}
 
   async execute({ instructorId, questionId, content }: AnswerQuestionUseCaseRequest): Promise<Answer> {
-    const answer = new Answer({
+    const answer = Answer.create({
       content,
-      authorId: instructorId,
-      questionId
+      authorId: new UniqueEntityID(instructorId),
+      questionId: new UniqueEntityID(questionId)
     })
 
 
