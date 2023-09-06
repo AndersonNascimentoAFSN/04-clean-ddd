@@ -1,11 +1,14 @@
 import { Slug } from "./value-objects/slug"
-import { Entity } from "../../core"
+import { Entity, UniqueEntityID } from "../../core"
 
 interface QuestionsProps {
   slug: Slug 
   title: string
   content: string
-  authorId: string
+  bestAnswerId?: UniqueEntityID
+  authorId: UniqueEntityID
+  createdAt: Date
+  updatedAt?: Date
 }
 
 export class Question extends Entity<QuestionsProps> {
