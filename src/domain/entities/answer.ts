@@ -1,5 +1,4 @@
-import { Entity, Optional } from "@/core"
-import { UniqueEntityID } from "@/core"
+import { Entity, Optional, UniqueEntityID } from '@/core'
 
 interface AnswerProps {
   content: string
@@ -12,6 +11,11 @@ interface AnswerProps {
 export class Answer extends Entity<AnswerProps> {
   get content() {
     return this.props.content
+  }
+
+  set content(content: string) {
+    this.props.content = content
+    this.update()
   }
 
   get authorId() {
@@ -31,26 +35,24 @@ export class Answer extends Entity<AnswerProps> {
   }
 
   get excerpt() {
-    return this.content
-      .substring(0, 120)
-      .trimEnd()
-      .concat('...')
+    return this.content.substring(0, 120).trimEnd().concat('...')
   }
 
   private update() {
     this.props.updatedAt = new Date()
   }
 
-  set content(content: string) {
-    this.props.content = content
-    this.update()
-  }
-
-  static create(props: Optional<AnswerProps, 'createdAt'>, id?: UniqueEntityID) {
-    const answer = new Answer({
-      ...props,
-      createdAt: new Date(),
-    }, id)
+  static create(
+    props: Optional<AnswerProps, 'createdAt'>,
+    id?: UniqueEntityID,
+  ) {
+    const answer = new Answer(
+      {
+        ...props,
+        createdAt: new Date(),
+      },
+      id,
+    )
     return answer
   }
 }
