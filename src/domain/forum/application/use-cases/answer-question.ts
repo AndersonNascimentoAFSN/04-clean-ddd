@@ -1,6 +1,6 @@
 import { UniqueEntityID } from '@/core'
-import { Answer } from '../entities'
-import { AnswersRepository } from '../repositories'
+import { Answer } from '@/domain/forum/enterprise/entities'
+import { AnswersRepository } from '@/domain/forum/application/repositories'
 
 interface AnswerQuestionUseCaseRequest {
   content: string
