@@ -1,3 +1,5 @@
+import { faker } from '@faker-js/faker'
+
 import { AnswerQuestionUseCase } from './answer-question'
 import { InMemoryAnswersRepository } from 'test'
 
@@ -10,10 +12,10 @@ describe('Create Answer', () => {
     sut = new AnswerQuestionUseCase(inMemoryAnswersRepository)
   })
   it('should be able to create a answer', async () => {
-    const contentText = 'Nova pergunta'
+    const contentText = faker.lorem.text()
 
     const { answer } = await sut.execute({
-      content: 'Nova pergunta',
+      content: contentText,
       instructorId: '1',
       questionId: '1',
     })
