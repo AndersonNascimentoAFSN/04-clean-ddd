@@ -1,5 +1,5 @@
-import { Entity, Optional } from "../../core"
-import { UniqueEntityID } from "../../core"
+import { Entity, Optional } from "@/core"
+import { UniqueEntityID } from "@/core"
 
 interface AnswerProps {
   content: string

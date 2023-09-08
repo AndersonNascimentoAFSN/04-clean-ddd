@@ -1,4 +1,4 @@
-import { Entity, UniqueEntityID } from "../../core"
+import { Entity, UniqueEntityID } from "@/core"
 
 interface InstructorProps {
   name: string
