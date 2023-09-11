@@ -16,12 +16,14 @@ describe('Get Question By Slug', () => {
 
   it('should be able to get a question by slug', async () => {
     const slugText = faker.lorem.text()
+    const questionTitle = faker.lorem.sentence()
+    const questionContent = faker.lorem.text()
 
     const newQuestion = makeQuestion({
       override: {
         slug: Slug.create(slugText),
-        content: 'Example question',
-        title: 'Example content',
+        content: questionContent,
+        title: questionTitle,
       },
       slugText,
     })
