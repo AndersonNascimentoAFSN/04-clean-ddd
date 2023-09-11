@@ -2,9 +2,8 @@ import { faker } from '@faker-js/faker'
 
 import { InMemoryQuestionsRepository } from 'test'
 import { GetQuestionBySlugUseCase } from './get-question-by-slug'
-import { Question } from '@/domain/forum/enterprise/entities'
-import { Slug } from '@/domain/forum/enterprise/entities/value-objects/slug'
-import { UniqueEntityID } from '@/core'
+import { makeQuestion } from 'test/factories/make-question'
+import { Slug } from '../../enterprise/entities/value-objects/slug'
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository
 let sut: GetQuestionBySlugUseCase
@@ -18,11 +17,13 @@ describe('Get Question By Slug', () => {
   it('should be able to get a question by slug', async () => {
     const slugText = faker.lorem.text()
 
-    const newQuestion = Question.create({
-      title: 'Example question',
-      slug: Slug.create(slugText),
-      content: 'Example content',
-      authorId: new UniqueEntityID(),
+    const newQuestion = makeQuestion({
+      override: {
+        slug: Slug.create(slugText),
+        content: 'Example question',
+        title: 'Example content',
+      },
+      slugText,
     })
 
     inMemoryQuestionsRepository.create(newQuestion)
