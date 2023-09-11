@@ -3,7 +3,7 @@ import dayjs from 'dayjs'
 import { Slug } from './value-objects/slug'
 import { Entity, Optional, UniqueEntityID } from '@/core'
 
-interface QuestionsProps {
+export interface QuestionProps {
   slug: Slug
   title: string
   content: string
@@ -13,7 +13,7 @@ interface QuestionsProps {
   updatedAt?: Date
 }
 
-export class Question extends Entity<QuestionsProps> {
+export class Question extends Entity<QuestionProps> {
   get slug() {
     return this.props.slug
   }
@@ -71,7 +71,7 @@ export class Question extends Entity<QuestionsProps> {
   }
 
   static create(
-    props: Optional<QuestionsProps, 'createdAt' | 'slug'>,
+    props: Optional<QuestionProps, 'createdAt' | 'slug'>,
     id?: UniqueEntityID,
   ) {
     const question = new Question(
