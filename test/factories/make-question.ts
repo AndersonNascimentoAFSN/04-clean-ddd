@@ -5,8 +5,8 @@ import { Question, QuestionProps } from '@/domain/forum/enterprise/entities'
 import { Slug } from '@/domain/forum/enterprise/entities/value-objects/slug'
 
 type MakeQuestionParams = {
-  override: Partial<QuestionProps>
-  slugText: string
+  override?: Partial<QuestionProps>
+  slugText?: string
   id?: UniqueEntityID
 }
 
