@@ -1,6 +1,6 @@
 import { Entity, Optional, UniqueEntityID } from '@/core'
 
-interface AnswerProps {
+export interface AnswerProps {
   content: string
   authorId: UniqueEntityID
   questionId: UniqueEntityID
