@@ -2,6 +2,7 @@ import { InMemoryAnswersRepository, InMemoryQuestionsRepository } from 'test'
 import { makeAnswer, makeQuestion } from 'test/factories'
 import { UniqueEntityID } from '@/core'
 import { ChooseQuestionBestAnswerUseCase } from './choose-question-best-answer'
+import { NotAllowedError, ResourceNotFoundError } from './errors'
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository
 let inMemoryAnswersRepository: InMemoryAnswersRepository
@@ -47,11 +48,34 @@ describe('Choose Question Best Answer', () => {
     await inMemoryQuestionsRepository.create(question)
     await inMemoryAnswersRepository.create(answer)
 
-    expect(() =>
-      sut.execute({
-        answerId: answer.id.toString(),
-        authorId: 'author-2',
-      }),
-    ).rejects.toBeInstanceOf(Error)
+    const result = await sut.execute({
+      answerId: answer.id.toString(),
+      authorId: 'author-2',
+    })
+
+    expect(result.isLeft()).toBe(true)
+    expect(result.value).toBeInstanceOf(NotAllowedError)
+  })
+
+  it('should not be able to choose if answer not exist', async () => {
+    const question = makeQuestion({
+      id: new UniqueEntityID('question-1'),
+      override: { authorId: new UniqueEntityID('author-1') },
+    })
+
+    const answer = makeAnswer({
+      override: { questionId: new UniqueEntityID('question-2') },
+    })
+
+    await inMemoryQuestionsRepository.create(question)
+    await inMemoryAnswersRepository.create(answer)
+
+    const result = await sut.execute({
+      answerId: answer.id.toString(),
+      authorId: 'author-1',
+    })
+
+    expect(result.isLeft()).toBe(true)
+    expect(result.value).toBeInstanceOf(ResourceNotFoundError)
   })
 })

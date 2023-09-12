@@ -14,14 +14,13 @@ describe('Create Question', () => {
   it('should be able to create a question', async () => {
     const contentText = faker.lorem.text()
 
-    const { question } = await sut.execute({
+    const result = await sut.execute({
       title: 'Nova pergunta',
       content: contentText,
       authorId: '1',
     })
 
-    expect(question.id).toBeTruthy()
-    expect(question.content).toEqual(contentText)
-    expect(inMemoryQuestionsRepository.items[0].id).toEqual(question.id)
+    expect(result.isRight()).toBe(true)
+    expect(inMemoryQuestionsRepository.items[0]).toEqual(result.value?.question)
   })
 })
