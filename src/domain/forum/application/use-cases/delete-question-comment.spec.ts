@@ -1,5 +1,4 @@
 import { InMemoryQuestionCommentsRepository } from 'test'
-import { makeQuestion } from 'test/factories'
 import { UniqueEntityID } from '@/core'
 import { DeleteQuestionCommentUseCase } from './delete-question-comment'
 import { makeQuestionComment } from 'test/factories/make-question-commment'
