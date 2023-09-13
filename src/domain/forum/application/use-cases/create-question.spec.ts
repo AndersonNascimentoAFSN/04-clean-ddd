@@ -24,7 +24,9 @@ describe('Create Question', () => {
 
     expect(result.isRight()).toBe(true)
     expect(inMemoryQuestionsRepository.items[0]).toEqual(result.value?.question)
-    expect(inMemoryQuestionsRepository.items[0].attachments).toHaveLength(0)
+    expect(
+      inMemoryQuestionsRepository.items[0].attachments.getItems(),
+    ).toHaveLength(0)
   })
 
   it('should be able to create a question with attachments', async () => {
@@ -40,10 +42,14 @@ describe('Create Question', () => {
     expect(result.isRight()).toBe(true)
     expect(inMemoryQuestionsRepository.items[0]).toEqual(result.value?.question)
 
-    expect(inMemoryQuestionsRepository.items[0].attachments).toHaveLength(2)
-    expect(inMemoryQuestionsRepository.items[0].attachments).toEqual([
-      expect.objectContaining({ attachmentId: new UniqueEntityID('1') }),
-      expect.objectContaining({ attachmentId: new UniqueEntityID('2') }),
-    ])
+    expect(
+      inMemoryQuestionsRepository.items[0].attachments.getItems(),
+    ).toHaveLength(2)
+    expect(inMemoryQuestionsRepository.items[0].attachments.getItems()).toEqual(
+      [
+        expect.objectContaining({ attachmentId: new UniqueEntityID('1') }),
+        expect.objectContaining({ attachmentId: new UniqueEntityID('2') }),
+      ],
+    )
   })
 })
