@@ -42,10 +42,20 @@ describe('Get Question By Slug', () => {
       slug: slugText,
     })
 
-    if (result.isRight()) {
-      expect(result.value?.question.id).toBeTruthy()
-      expect(result.value.question.title).toEqual(newQuestion.title)
-      expect(result.value?.question.content).toEqual(newQuestion.content)
-    }
+    expect(result.isRight()).toBeTruthy()
+
+    expect(result.value).toMatchObject({
+      question: expect.objectContaining({
+        id: newQuestion.id,
+        title: newQuestion.title,
+        content: newQuestion.content,
+      }),
+    })
+
+    // if (result.isRight()) {
+    //   expect(result.value?.question.id).toBeTruthy()
+    //   expect(result.value.question.title).toEqual(newQuestion.title)
+    //   expect(result.value?.question.content).toEqual(newQuestion.content)
+    // }
   })
 })
