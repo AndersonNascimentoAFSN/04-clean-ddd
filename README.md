@@ -19,3 +19,9 @@ Design dirigido à domínio
 
 
 
+# Conceitos
+- Aggregates: conjuntos de entidades que são manipuladas ao mesmo tempo, que juntas compõe o agregado. Por exemplo, pedido e items do pedido. Quando um pedido vai ser salvo os items do pedido são salvos também no mesmo instante
+
+- Watched Lists: É um pattern que permite identificar de forma isolada os items contidos em uma lista para que possa efetuar as ações de criação, exclusão e atualização. Nesse array há os dados dos items, mas também informação que identifica se é um item novo, um item que foi removido ou excluído.
+
+
