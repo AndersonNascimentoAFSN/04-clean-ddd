@@ -1,6 +1,7 @@
 import { faker } from '@faker-js/faker'
 
 import {
+  InMemoryAnswerAttachmentsRepository,
   InMemoryAnswerCommentsRepository,
   InMemoryAnswersRepository,
 } from 'test'
@@ -10,12 +11,17 @@ import { CommentOnAnswerUseCase } from './comment-on-answer'
 import { ResourceNotFoundError } from './errors'
 
 let inMemoryAnswersRepository: InMemoryAnswersRepository
+let inMemoryAnswerAttachmentsRepository: InMemoryAnswerAttachmentsRepository
 let inMemoryAnswerCommentsRepository: InMemoryAnswerCommentsRepository
 let sut: CommentOnAnswerUseCase
 
 describe('Comment on answer', () => {
   beforeEach(() => {
-    inMemoryAnswersRepository = new InMemoryAnswersRepository()
+    inMemoryAnswerAttachmentsRepository =
+      new InMemoryAnswerAttachmentsRepository()
+    inMemoryAnswersRepository = new InMemoryAnswersRepository(
+      inMemoryAnswerAttachmentsRepository,
+    )
     inMemoryAnswerCommentsRepository = new InMemoryAnswerCommentsRepository()
 
     sut = new CommentOnAnswerUseCase(

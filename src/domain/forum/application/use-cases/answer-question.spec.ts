@@ -1,15 +1,23 @@
 import { faker } from '@faker-js/faker'
 
 import { AnswerQuestionUseCase } from './answer-question'
-import { InMemoryAnswersRepository } from 'test'
+import {
+  InMemoryAnswerAttachmentsRepository,
+  InMemoryAnswersRepository,
+} from 'test'
 import { UniqueEntityID } from '@/core'
 
+let inMemoryAnswerAttachmentsRepository: InMemoryAnswerAttachmentsRepository
 let inMemoryAnswersRepository: InMemoryAnswersRepository
 let sut: AnswerQuestionUseCase
 
 describe('Create Answer', () => {
   beforeEach(() => {
-    inMemoryAnswersRepository = new InMemoryAnswersRepository()
+    inMemoryAnswerAttachmentsRepository =
+      new InMemoryAnswerAttachmentsRepository()
+    inMemoryAnswersRepository = new InMemoryAnswersRepository(
+      inMemoryAnswerAttachmentsRepository,
+    )
     sut = new AnswerQuestionUseCase(inMemoryAnswersRepository)
   })
   it('should be able to create a answer', async () => {
