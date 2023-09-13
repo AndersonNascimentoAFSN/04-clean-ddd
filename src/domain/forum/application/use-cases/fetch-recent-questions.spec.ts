@@ -52,4 +52,12 @@ describe('Fetch Recent Questions', () => {
 
     expect(result.value?.questions).toHaveLength(2)
   })
+
+  it('should be able to fetch array empty if not create questions', async () => {
+    const result = await sut.execute({
+      page: 1,
+    })
+
+    expect(result.value?.questions).toHaveLength(0)
+  })
 })
