@@ -72,6 +72,9 @@ describe('Choose Question Best Answer', () => {
 
     expect(result.isLeft()).toBe(true)
     expect(result.value).toBeInstanceOf(NotAllowedError)
+    expect(result.value).toMatchObject({
+      message: 'Not allowed',
+    })
   })
 
   it('should not be able to choose if answer not exist', async () => {
