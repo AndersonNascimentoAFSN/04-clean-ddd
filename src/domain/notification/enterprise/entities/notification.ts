@@ -1,6 +1,6 @@
 import { Entity, Optional, UniqueEntityID } from '@/core'
 
-interface NotificationProps {
+export interface NotificationProps {
   recipientId: UniqueEntityID
   title: string
   content: string
