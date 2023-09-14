@@ -31,3 +31,5 @@ Design dirigido à domínio
 
 ## Obs.: Não pode haver dependencia de código entre os subdomínios. Precisa haver comunicação entre eles.
 
+# Publish / Subscribe
+![Alt text](image.png)
