@@ -7,7 +7,10 @@ import {
 import { makeAnswer, makeQuestion } from 'test/factories'
 import { UniqueEntityID } from '@/core'
 import { ChooseQuestionBestAnswerUseCase } from './choose-question-best-answer'
-import { NotAllowedError, ResourceNotFoundError } from './errors'
+import {
+  NotAllowedError,
+  ResourceNotFoundError,
+} from '../../../../core/errors/errors'
 
 let inMemoryQuestionAttachmentsRepository: InMemoryQuestionAttachmentsRepository
 let inMemoryAnswerAttachmentsRepository: InMemoryAnswerAttachmentsRepository

@@ -5,7 +5,7 @@ import {
   Question,
   QuestionAttachmentList,
 } from '@/domain/forum/enterprise/entities'
-import { NotAllowedError, ResourceNotFoundError } from './errors'
+import { NotAllowedError, ResourceNotFoundError } from '../../../../core/errors/errors'
 import { QuestionAttachmentsRepository } from '../repositories/question-attachments-repository'
 
 interface EditQuestionUseCaseRequest {

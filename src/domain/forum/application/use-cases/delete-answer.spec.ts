@@ -5,7 +5,7 @@ import {
 import { DeleteAnswerUseCase } from './delete-answer'
 import { makeAnswer, makeAnswerAttachment } from 'test/factories'
 import { UniqueEntityID } from '@/core'
-import { NotAllowedError } from './errors'
+import { NotAllowedError } from '../../../../core/errors/errors'
 
 let inMemoryAnswerAttachmentsRepository: InMemoryAnswerAttachmentsRepository
 let inMemoryAnswersRepository: InMemoryAnswersRepository

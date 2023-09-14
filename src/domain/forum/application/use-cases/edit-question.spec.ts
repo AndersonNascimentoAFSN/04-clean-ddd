@@ -3,10 +3,8 @@ import {
   InMemoryQuestionAttachmentsRepository,
 } from 'test'
 import { EditQuestionUseCase } from './edit-question'
-import { makeQuestion } from 'test/factories/make-question'
-import { UniqueEntityID } from '@/core'
-import { NotAllowedError } from './errors'
-import { makeQuestionAttachment } from 'test/factories/make-question-attachment'
+import { makeQuestion, makeQuestionAttachment } from 'test/factories'
+import { UniqueEntityID, NotAllowedError } from '@/core'
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository
 let inMemoryQuestionAttachmentRepository: InMemoryQuestionAttachmentsRepository

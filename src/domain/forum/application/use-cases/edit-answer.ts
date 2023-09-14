@@ -4,7 +4,7 @@ import {
   AnswersRepository,
 } from '@/domain/forum/application/repositories'
 import { Answer, AnswerAttachment } from '@/domain/forum/enterprise/entities'
-import { NotAllowedError, ResourceNotFoundError } from './errors'
+import { NotAllowedError, ResourceNotFoundError } from '../../../../core/errors/errors'
 import { AnswerAttachmentList } from '../../enterprise/entities/answer-attachment-list'
 
 interface EditAnswerUseCaseRequest {

@@ -1,5 +1,5 @@
 import { QuestionsRepository } from '@/domain/forum/application/repositories'
-import { NotAllowedError, ResourceNotFoundError } from './errors'
+import { NotAllowedError, ResourceNotFoundError } from '../../../../core/errors/errors'
 import { Either, left, right } from '@/core'
 
 interface DeleteQuestionUseCaseRequest {

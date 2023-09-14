@@ -1,6 +1,6 @@
 import { Either, left, right } from '@/core'
 import { AnswerCommentsRepository } from '@/domain/forum/application/repositories'
-import { NotAllowedError, ResourceNotFoundError } from './errors'
+import { NotAllowedError, ResourceNotFoundError } from '../../../../core/errors/errors'
 
 interface DeleteAnswerCommentUseCaseRequest {
   authorId: string

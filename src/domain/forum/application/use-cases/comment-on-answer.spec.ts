@@ -8,7 +8,7 @@ import {
 import { makeAnswer } from 'test/factories'
 import { UniqueEntityID } from '@/core'
 import { CommentOnAnswerUseCase } from './comment-on-answer'
-import { ResourceNotFoundError } from './errors'
+import { ResourceNotFoundError } from '../../../../core/errors/errors'
 
 let inMemoryAnswersRepository: InMemoryAnswersRepository
 let inMemoryAnswerAttachmentsRepository: InMemoryAnswerAttachmentsRepository

@@ -8,7 +8,7 @@ import {
 import { makeQuestion } from 'test/factories'
 import { UniqueEntityID } from '@/core'
 import { CommentOnQuestionUseCase } from './comment-on-question'
-import { ResourceNotFoundError } from './errors'
+import { ResourceNotFoundError } from '../../../../core/errors/errors'
 
 let inMemoryQuestionsRepository: InMemoryQuestionsRepository
 let inMemoryQuestionAttachmentsRepository: InMemoryQuestionAttachmentsRepository

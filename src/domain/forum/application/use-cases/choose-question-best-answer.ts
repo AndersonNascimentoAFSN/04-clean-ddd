@@ -4,7 +4,10 @@ import {
   QuestionsRepository,
 } from '@/domain/forum/application/repositories'
 import { Either, left, right } from '@/core'
-import { NotAllowedError, ResourceNotFoundError } from './errors'
+import {
+  NotAllowedError,
+  ResourceNotFoundError,
+} from '../../../../core/errors/errors'
 
 interface ChooseQuestionBestAnswerUseCaseRequest {
   authorId: string

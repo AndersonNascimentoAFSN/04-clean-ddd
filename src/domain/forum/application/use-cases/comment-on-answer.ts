@@ -4,7 +4,7 @@ import {
   AnswersRepository,
 } from '@/domain/forum/application/repositories'
 import { AnswerComment } from '@/domain/forum/enterprise/entities'
-import { ResourceNotFoundError } from './errors'
+import { ResourceNotFoundError } from '../../../../core/errors/errors'
 
 interface CommentOnAnswerUseCaseRequest {
   authorId: string

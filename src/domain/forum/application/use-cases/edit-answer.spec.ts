@@ -5,7 +5,7 @@ import {
 import { EditAnswerUseCase } from './edit-answer'
 import { makeAnswer, makeAnswerAttachment } from 'test/factories'
 import { UniqueEntityID } from '@/core'
-import { NotAllowedError } from './errors'
+import { NotAllowedError } from '../../../../core/errors/errors'
 
 let inMemoryAnswerAttachmentsRepository: InMemoryAnswerAttachmentsRepository
 let inMemoryAnswersRepository: InMemoryAnswersRepository
