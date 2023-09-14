@@ -1,5 +1,6 @@
-import { Entity, Optional, UniqueEntityID } from '@/core'
+import { AggregateRoot, Optional, UniqueEntityID } from '@/core'
 import { AnswerAttachmentList } from './answer-attachment-list'
+import { AnswerCreatedEvent } from '../events/answer-created-event'
 
 export interface AnswerProps {
   content: string
@@ -10,7 +11,7 @@ export interface AnswerProps {
   updatedAt?: Date
 }
 
-export class Answer extends Entity<AnswerProps> {
+export class Answer extends AggregateRoot<AnswerProps> {
   get content() {
     return this.props.content
   }
@@ -65,6 +66,14 @@ export class Answer extends Entity<AnswerProps> {
       },
       id,
     )
+
+    const isNewAnswer = !id
+
+    if (isNewAnswer) {
+      // Criação do evento de criação de resposta (publish)
+      answer.addDomainEvent(new AnswerCreatedEvent(answer))
+    }
+
     return answer
   }
 }

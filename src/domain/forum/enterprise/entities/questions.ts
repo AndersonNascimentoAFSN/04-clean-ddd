@@ -77,6 +77,12 @@ export class Question extends AggregateRoot<QuestionProps> {
     return this.content.substring(0, 120).trimEnd().concat('...')
   }
 
+  get resume() {
+    return `Nova resposta em "${this.props.title
+      .substring(0, 40)
+      .concat('...')}"`
+  }
+
   private update() {
     this.props.updatedAt = new Date()
   }
