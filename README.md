@@ -24,4 +24,10 @@ Design dirigido à domínio
 
 - Watched Lists: É um pattern que permite identificar de forma isolada os items contidos em uma lista para que possa efetuar as ações de criação, exclusão e atualização. Nesse array há os dados dos items, mas também informação que identifica se é um item novo, um item que foi removido ou excluído.
 
+# Subdomínios
+- Core: O que dá dinheiro. Em um e-commerce seria compra, catálogo, pagamento, entrega, etc. É tudo que não pode parar.
+- Supporting: Dá suporte para o core funcionar. Por exemplo, em um e-commerce seria estoque.
+- Generic: É necessário, porém não tão importantes. Por exemplo, em um e-commerce seria notificação ao cliente, promoções, chat, etc.
+
+## Obs.: Não pode haver dependencia de código entre os subdomínios. Precisa haver comunicação entre eles.
 
