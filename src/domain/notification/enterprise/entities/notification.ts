@@ -10,7 +10,7 @@ export interface NotificationProps {
 }
 
 export class Notification extends Entity<NotificationProps> {
-  get RecipientId(): UniqueEntityID {
+  get recipientId(): UniqueEntityID {
     return this.props.recipientId
   }
 
@@ -28,6 +28,10 @@ export class Notification extends Entity<NotificationProps> {
 
   get createdAt() {
     return this.props.createdAt
+  }
+
+  read() {
+    this.props.readAt = new Date()
   }
 
   static create(
