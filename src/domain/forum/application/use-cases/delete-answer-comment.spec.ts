@@ -1,8 +1,7 @@
 import { InMemoryAnswerCommentsRepository } from 'test'
-import { UniqueEntityID } from '@/core'
+import { UniqueEntityID, NotAllowedError, ResourceNotFoundError } from '@/core'
 import { DeleteAnswerCommentUseCase } from './delete-answer-comment'
 import { makeAnswerComment } from 'test/factories'
-import { NotAllowedError, ResourceNotFoundError } from '../../../../core/errors/errors'
 
 let inMemoryAnswerCommentsRepository: InMemoryAnswerCommentsRepository
 let sut: DeleteAnswerCommentUseCase
